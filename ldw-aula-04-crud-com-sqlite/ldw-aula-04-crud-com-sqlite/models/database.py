@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 
+# Criando a instância do SQLAlchemy
 db = SQLAlchemy()
 
 class Game(db.Model):
