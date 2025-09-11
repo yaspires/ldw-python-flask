@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container" style="background-color: #f0f0f0; border-radius: 8px;">
+    <h2>Catálogo de Filmes</h2>
+    <hr>
+    <div class="row g-3">
+        {% for movie in moviesList %}
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="card movie-card">
+                <img class="card-img-top" src="{{ ('https://image.tmdb.org/t/p/w500' + movie.poster_path) if movie.poster_path else 'https://via.placeholder.com/300x450?text=Sem+Imagem' }}" alt="poster do filme">
+                <div class="card-body p-2">
+                    <h6 class="mb-1">{{ movie.title }}</h6>
+                    <small class="text-muted">{{ movie.release_date }}</small>
+                    <div class="d-grid mt-2">
+                        <a href="{{ url_for('apimovies', id=movie.id) }}" class="btn btn-accent">+ info</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
+

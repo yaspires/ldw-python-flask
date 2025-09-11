@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container" style="background-color: #f0f0f0; border-radius: 8px;">
+    <div class="row py-4">
+        <div class="col-md-4 text-center">
+            <img class="img-fluid" src="{{ ('https://image.tmdb.org/t/p/w500' + movieInfo.poster_path) if movieInfo.poster_path else 'https://via.placeholder.com/300x450?text=Sem+Imagem' }}" alt="poster do filme">
+        </div>
+        <div class="col-md-8">
+            <h2>{{ movieInfo.title }} ({{ movieInfo.release_date }})</h2>
+            <p><strong>Duração:</strong> {{ movieInfo.runtime }} min</p>
+            <p><strong>Gêneros:</strong> {% if movieInfo.genres %}{{ movieInfo.genres | map(attribute='name') | join(', ') }}{% endif %}</p>
+            <p><strong>Idioma original:</strong> {{ movieInfo.original_language }}</p>
+            <p><strong>País:</strong> {% if movieInfo.production_countries %}{{ movieInfo.production_countries | map(attribute='name') | join(', ') }}{% endif %}</p>
+            <p><strong>Popularidade:</strong> {{ movieInfo.popularity }}</p>
+            <p><strong>Nota TMDb:</strong> {{ movieInfo.vote_average }} ({{ movieInfo.vote_count }} votos)</p>
+            <p><strong>Sinopse:</strong> {{ movieInfo.overview }}</p>
+            <a href="{{ url_for('apimovies') }}" class="btn btn-dark mt-2">Voltar</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+

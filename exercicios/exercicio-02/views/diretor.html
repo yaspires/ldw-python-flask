@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    
+    <div class="text-center mb-4">
+        <h2 class="display-5">
+            🎬 Esta é a página de Filmes! 🍿
+        </h2>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <h3>🎥 Diretor em Destaque</h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Nome:</strong> {{nome}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Idade:</strong> {{idade}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Prêmios:</strong> {{premios}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h3 class="mb-3">🎞 Filmes dirigidos por ele:</h3>
+        <ol class="list-group list-group-numbered">
+            {% for filme in filmes %}
+                <li class="list-group-item">{{filme}}</li>
+            {% endfor %}
+        </ol>
+    </div>
+
+    <div class="card p-4 mb-4">
+        <h4 class="mb-3">➕ Adicionar Filme</h4>
+        <form action="{{ url_for('diretor') }}" method="POST" class="d-flex gap-2">
+            <input type="text" name="filme" class="form-control" placeholder="Digite o nome do filme">
+            <input type="submit" value="Enviar" class="btn btn-danger">
+        </form>
+    </div>
+
+    <div>
+        <h4 class="mb-3">⭐ Filme em Destaque:</h4>
+        {% for key, value in destaque.items() %}
+        <details class="mb-3">
+            <summary>{{key}}</summary>
+            <p class="mt-2">{{value}}</p> 
+        </details>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock content %}
