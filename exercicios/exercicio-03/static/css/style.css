@@ -1,0 +1,354 @@
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Layout principal */
+body {
+    background: linear-gradient(135deg, #d2eff7 0%, #aae5f2 30%, #53b2d4 85%);
+    color: #292f63;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+/* Removido centragem vertical; manteremos apenas centragem horizontal pelo margin auto no hero */
+
+.navbar {
+    background: #1f2557 !important; /* Intense (mais vibrante/escuro) */
+    box-shadow: 0 4px 16px rgba(31, 37, 87, 0.35);
+}
+
+.navbar-brand {
+    color: white !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: white !important;
+}
+
+/* Conteúdo principal */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Container principal */
+.content {
+    background: #ffffff; /* grandes áreas em branco */
+    border: 2px solid #d2eff7; /* Smooth */
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 8px 25px rgba(41, 47, 99, 0.08);
+}
+
+/* Título */
+.content h2 {
+    color: #292f63;
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+/* Links principais */
+.content a {
+    display: block;
+    margin: 20px 0;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 15px 25px;
+    background: #1ea0ff; /* azul claro padrão */
+    border-radius: 10px;
+    transition: none; /* sem animação */
+    box-shadow: none;
+}
+
+.content a:hover {
+    color: #ffffff;
+    background: #1f2557; /* azul escuro no hover */
+    transform: none;
+    box-shadow: none;
+}
+
+.content a p {
+    margin: 0;
+    color: white;
+    font-weight: 600;
+}
+
+/* Separador */
+hr {
+    border: 1px solid #d2eff7;
+    margin: 25px 0;
+    opacity: 0.6;
+}
+
+/* Footer fixo */
+footer {
+    background: #292f63;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 -3px 15px rgba(41, 47, 99, 0.2);
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Estilos para as páginas específicas */
+.container {
+    background: #ffffff; /* grandes áreas brancas */
+    border-radius: 15px;
+    padding: 24px;
+    box-shadow: 0 8px 25px rgba(41, 47, 99, 0.06);
+}
+.hero{
+    background: rgba(255,255,255,.65);
+    border: 1px solid #d2eff7;
+    border-radius: 16px;
+    padding: 48px 28px;
+    text-align: center;
+}
+
+.hero-inner .lead{color:#364069}
+.hero-actions .btn-outline-dark{border-color:#1f2557;color:#1f2557}
+.hero-actions .btn-outline-dark:hover{background:#1f2557;color:#fff}
+
+.hero .small-card{
+    width: 60vw; /* 60% da tela */
+    max-width: none;
+    margin: 0 auto; /* centraliza */
+}
+
+@media (max-width: 768px){
+    .hero .small-card{ width: 92vw; }
+}
+
+/* Cards */
+.card {
+    background: #ffffff;
+    border: 1px solid #d2eff7 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(41, 47, 99, 0.08) !important;
+}
+
+.card-header {
+    background: #428dc6 !important; /* Summer */
+    border-radius: 12px 12px 0 0 !important;
+    border: none !important;
+    padding: 18px !important;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-weight: 600;
+    color: white;
+}
+
+/* Lista personalizada */
+.list-group-item {
+    background: #ffffff;
+    border: 1px solid #d2eff7;
+    color: #292f63;
+    padding: 15px;
+    margin: 6px 0;
+    border-radius: 8px;
+}
+
+.list-group-item strong {
+    color: #1ea0ff;
+    font-weight: 600;
+}
+
+/* Botões */
+.btn-danger {
+    background: #06b6d4 !important; /* Just Vibe mais vibrante */
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 12px 25px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.35) !important;
+}
+
+.btn-danger:hover {
+    background: #1f2557 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 8px 24px rgba(31, 37, 87, 0.4) !important;
+}
+
+/* Formulários */
+.form-control {
+    border: 2px solid #d2eff7; /* Smooth */
+    border-radius: 8px;
+    padding: 12px 15px;
+    transition: border-color 0.3s ease;
+    background: #ffffff;
+}
+
+.form-control:focus {
+    border-color: #1ea0ff; /* Summer vibrante */
+    box-shadow: 0 0 0 0.2rem rgba(30, 160, 255, 0.25);
+    background: white;
+}
+
+/* Títulos das páginas */
+.display-5 {
+    color: #292f63 !important;
+    font-weight: 700 !important;
+}
+
+/* Details/Summary */
+details {
+    background: #ffffff;
+    border: 1px solid #d2eff7 !important;
+    border-radius: 8px !important;
+    padding: 15px !important;
+    margin: 10px 0 !important;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #292f63;
+}
+
+summary:hover {
+    color: #428dc6;
+}
+
+/* Tabela personalizada */
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(41, 47, 99, 0.08);
+}
+
+.custom-table th {
+    background: #1ea0ff; /* Summer vibrante */
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.movie-card .btn-accent {
+    background: #1ea0ff;
+    color: #ffffff;
+    border: none;
+}
+
+.movie-card .btn-accent:hover {
+    background: #06b6d4;
+}
+
+/* Cards de filmes com tamanhos consistentes */
+.movie-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-card .card-img-top {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.movie-card .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-card h6 {
+    min-height: 3em; /* duas linhas aprox */
+    line-height: 1.2;
+    overflow: hidden;
+}
+
+/* Minimal: tipografia e espaçamento sutis */
+h1,h2,h3,h4,h5,h6{font-weight:600;color:#1f2557}
+p,li,small{color:#364069}
+.btn{border-radius:10px}
+.btn.btn-accent{box-shadow:0 6px 16px rgba(30,160,255,.25)}
+.btn.btn-accent:active{transform:translateY(1px)}
+
+.movie-card .d-grid {
+    margin-top: auto;
+}
+
+@media (min-width: 992px) {
+    .movie-card .card-img-top { height: 260px; }
+}
+
+@media (min-width: 1200px) {
+    .movie-card .card-img-top { height: 300px; }
+}
+
+.custom-table td {
+    padding: 15px;
+    border-bottom: 1px solid #d2eff7;
+    color: #292f63;
+}
+
+.custom-table tr:nth-child(even) {
+    background: #d2eff7; /* Smooth */
+}
+
+.custom-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .content {
+        width: 95%;
+        padding: 25px;
+        margin: 20px auto;
+    }
+    
+    .content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .container {
+        padding: 20px;
+    }
+    
+    .custom-table {
+        font-size: 0.9rem;
+    }
+    
+    .custom-table th,
+    .custom-table td {
+        padding: 10px;
+    }
+}

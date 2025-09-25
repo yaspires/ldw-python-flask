@@ -2,7 +2,6 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-# Classe responsável por criar a entidade "Console" com seus atributos.
 class Console(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(150))
@@ -14,7 +13,7 @@ class Console(db.Model):
         self.fabricante = fabricante
         self.ano_lancamento = ano_lancamento
 
-# Classe responsável por criar a entidade "Games" com seus atributos.
+
 class Game(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     titulo = db.Column(db.String(150))
@@ -22,9 +21,7 @@ class Game(db.Model):
     categoria = db.Column(db.String(150))
     preco = db.Column(db.Float)
     quantidade = db.Column(db.Integer)
-    # Criando a chave estrangeira
     console_id = db.Column(db.Integer, db.ForeignKey('console.id'))    
-    # Definindo o relacionamento
     console = db.relationship('Console', backref=db.backref('game', lazy=True))
 
     def __init__(self, titulo, ano, categoria, preco, quantidade, console_id):

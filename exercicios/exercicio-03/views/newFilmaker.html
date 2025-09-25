@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+    <div class="text-center mb-4">
+        <h1 class="display-5">🎬 Cadastro de Diretores</h1>
+    </div>
+    <hr class="mb-5">
+
+    <div class="card shadow-lg p-4 mb-5">
+        <h3 class="mb-3">➕ Novo Diretor</h3>
+        <form action="{{ url_for('newFilmaker') }}" method="POST" class="row g-3">
+            
+            <div class="col-md-4">
+                <label class="form-label">Nome:</label>
+                <input type="text" name="nome" class="form-control" placeholder="Digite o nome do diretor" required>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Idade:</label>
+                <input type="number" name="idade" class="form-control" placeholder="Idade" required>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Prêmios:</label>
+                <input type="text" name="premios" class="form-control" placeholder="Ex: Oscar, Globo de Ouro..." required>
+            </div>
+
+            <div class="col-12 text-end">
+                <input type="submit" value="Cadastrar" class="btn btn-danger px-4">
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <h3 class="mb-3">📋 Diretores Cadastrados</h3>
+        
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>🎭 Nome</th>
+                    <th>📅 Idade</th>
+                    <th>🏆 Prêmios</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for filmaker in filmakerList %}
+                <tr>
+                    <td><strong>{{filmaker.Nome}}</strong></td>
+                    <td>{{filmaker.Idade}} anos</td>
+                    <td>{{filmaker.Premios}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock content %}
