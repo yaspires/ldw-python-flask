@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-md-6 m-auto bg-white p-3 rounded">
+    <h3 style="text-align: center;">Editar diretor:</h3><br>
+    <form action="{{url_for('filmakerEdit', id=filmaker.id)}}" method="POST">
+        <input type="text" name="nome" class="form-control" value="{{filmaker.nome}}" required>
+        <input type="number" name="idade" value="{{filmaker.idade}}" class="form-control" required>
+        <input type="text" name="premios" value="{{filmaker.premios}}" class="form-control"><br>
+        <a href="{{url_for('filmakerEdit', id=filmaker.id)}}" onclick="return confirm('Confirma as alterações?')"><input type="submit" value="Alterar" class="btn btn-warning btn-sm action-btn"></a>
+        <a href="{{url_for('filmakersEstoque')}}"><input type="button" value="Cancelar" class="btn btn-danger btn-sm action-btn"></a>
+    </form>  
+</div>
+{% endblock content %}

@@ -1,11 +1,9 @@
-/* Reset básico */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Layout principal */
 body {
     background: linear-gradient(135deg, #d2eff7 0%, #aae5f2 30%, #53b2d4 85%);
     color: #292f63;
@@ -16,11 +14,8 @@ body {
     flex-direction: column;
 }
 
-/* Navbar */
-/* Removido centragem vertical; manteremos apenas centragem horizontal pelo margin auto no hero */
-
 .navbar {
-    background: #1f2557 !important; /* Intense (mais vibrante/escuro) */
+    background: #1f2557 !important; 
     box-shadow: 0 4px 16px rgba(31, 37, 87, 0.35);
 }
 
@@ -40,13 +35,11 @@ body {
     color: white !important;
 }
 
-/* Conteúdo principal */
 main {
     flex: 1;
     padding: 20px;
 }
 
-/* Container principal */
 .content {
     background: #ffffff; /* grandes áreas em branco */
     border: 2px solid #d2eff7; /* Smooth */
@@ -59,7 +52,6 @@ main {
     box-shadow: 0 8px 25px rgba(41, 47, 99, 0.08);
 }
 
-/* Título */
 .content h2 {
     color: #292f63;
     margin-bottom: 25px;
@@ -67,7 +59,6 @@ main {
     font-weight: 600;
 }
 
-/* Links principais */
 .content a {
     display: block;
     margin: 20px 0;
@@ -95,14 +86,12 @@ main {
     font-weight: 600;
 }
 
-/* Separador */
 hr {
     border: 1px solid #d2eff7;
     margin: 25px 0;
     opacity: 0.6;
 }
 
-/* Footer fixo */
 footer {
     background: #292f63;
     color: white;
@@ -117,7 +106,6 @@ footer p {
     font-weight: 500;
 }
 
-/* Estilos para as páginas específicas */
 .container {
     background: #ffffff; /* grandes áreas brancas */
     border-radius: 15px;
@@ -146,7 +134,6 @@ footer p {
     .hero .small-card{ width: 92vw; }
 }
 
-/* Cards */
 .card {
     background: #ffffff;
     border: 1px solid #d2eff7 !important;
@@ -167,7 +154,6 @@ footer p {
     color: white;
 }
 
-/* Lista personalizada */
 .list-group-item {
     background: #ffffff;
     border: 1px solid #d2eff7;
@@ -182,24 +168,7 @@ footer p {
     font-weight: 600;
 }
 
-/* Botões */
-.btn-danger {
-    background: #06b6d4 !important; /* Just Vibe mais vibrante */
-    border: none !important;
-    border-radius: 8px !important;
-    padding: 12px 25px !important;
-    font-weight: 600 !important;
-    transition: all 0.3s ease !important;
-    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.35) !important;
-}
 
-.btn-danger:hover {
-    background: #1f2557 !important;
-    transform: translateY(-1px) !important;
-    box-shadow: 0 8px 24px rgba(31, 37, 87, 0.4) !important;
-}
-
-/* Formulários */
 .form-control {
     border: 2px solid #d2eff7; /* Smooth */
     border-radius: 8px;
@@ -214,13 +183,11 @@ footer p {
     background: white;
 }
 
-/* Títulos das páginas */
 .display-5 {
     color: #292f63 !important;
     font-weight: 700 !important;
 }
 
-/* Details/Summary */
 details {
     background: #ffffff;
     border: 1px solid #d2eff7 !important;
@@ -239,7 +206,6 @@ summary:hover {
     color: #428dc6;
 }
 
-/* Tabela personalizada */
 .custom-table {
     width: 100%;
     border-collapse: collapse;
@@ -268,7 +234,6 @@ summary:hover {
     background: #06b6d4;
 }
 
-/* Cards de filmes com tamanhos consistentes */
 .movie-card {
     height: 100%;
     display: flex;
@@ -288,13 +253,12 @@ summary:hover {
     flex-direction: column;
 }
 
-.movie-card h6 {
-    min-height: 3em; /* duas linhas aprox */
+    .movie-card h6 {
+    min-height: 3em;
     line-height: 1.2;
     overflow: hidden;
 }
 
-/* Minimal: tipografia e espaçamento sutis */
 h1,h2,h3,h4,h5,h6{font-weight:600;color:#1f2557}
 p,li,small{color:#364069}
 .btn{border-radius:10px}
@@ -327,7 +291,6 @@ p,li,small{color:#364069}
     border-bottom: none;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .content {
         width: 95%;

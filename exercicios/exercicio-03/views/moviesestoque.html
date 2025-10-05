@@ -1,0 +1,112 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container bg-white p-3 rounded">
+<h2>Controle de estoque - Filmes</h2>
+<br />
+<details>
+  <summary>[ Cadastrar novo filme ]</summary>
+  <div class="col-md-4">
+    <form action="{{url_for('moviesEstoque')}}" method="POST">
+      <input
+        type="text"
+        name="titulo"
+        placeholder="Título"
+        class="form-control"
+        required
+      />
+      <input
+        type="number"
+        name="ano"
+        placeholder="Ano"
+        class="form-control"
+        required
+      />
+      <input
+        type="text"
+        name="genero"
+        placeholder="Gênero"
+        class="form-control"
+        required
+      />
+      <input
+        type="number"
+        name="preco"
+        placeholder="Preço"
+        min="0"
+        step="0.01"
+        class="form-control"
+        required
+      />
+      <input
+        type="number"
+        name="quantidade"
+        placeholder="Quantidade"
+        class="form-control"
+        required
+      />
+      <select name="filmaker" class="form-select" required>
+        <option value="" selected disabled>Selecione um filmaker...</option>
+        {% for f in filmakers %}
+        <option value="{{f.id}}">{{f.nome}}</option>
+        {% endfor %}
+      </select>
+
+      <input type="submit" value="Cadastrar" class="btn btn-success btn-sm action-btn" />
+      <input type="reset" value="Limpar" class="btn btn-danger btn-sm action-btn" />
+    </form>
+  </div>
+</details>
+<hr />
+<h5>Filmes em estoque:</h5>
+<br />
+<table class="table table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Título:</th>
+      <th>Ano:</th>
+      <th>Gênero:</th>
+      <th>Filmaker:</th>
+      <th>Preço:</th>
+      <th>Quantidade:</th>
+      <th style="text-align: center" colspan="2">Ação:</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for m in moviesestoque.items %}
+    <tr>
+      <td>{{m.titulo}}</td>
+      <td>{{m.ano}}</td>
+      <td>{{m.genero}}</td>
+      <td>{{m.filmaker.nome}}</td>
+      <td>{{m.preco}}</td>
+      <td>{{m.quantidade}}</td>
+      <td style="text-align: center; width: 130px">
+        <a class="btn btn-warning btn-sm action-btn" href="{{url_for('movieEdit', id=m.id)}}"
+          >Editar</a
+        >
+      </td>
+      <td style="text-align: center; width: 130px">
+        <a
+          class="btn btn-danger btn-sm action-btn"
+          href="{{url_for('moviesEstoque', id=m.id)}}"
+          onclick="return confirm('Deseja mesmo excluir o filme {{m.titulo}}?')"
+          >Excluir</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<p style="text-align: center">
+  {% if moviesestoque.has_prev %}
+  <a href="{{url_for('moviesEstoque', page=moviesestoque.prev_num)}}"
+    ><< Anterior</a
+  >
+  {% endif %}
+  {% if moviesestoque.has_next %}
+  <a href="{{url_for('moviesEstoque', page=moviesestoque.next_num)}}"
+    >Próximo >></a
+  >
+  {% endif %}
+</p>
+</div>
+{% endblock content %}

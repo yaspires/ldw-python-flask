@@ -2,32 +2,32 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-class Console(db.Model):
+class Filmaker(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(150))
-    fabricante = db.Column(db.String(150))
-    ano_lancamento = db.Column(db.Integer)
+    idade = db.Column(db.Integer)
+    premios = db.Column(db.String(255))
 
-    def __init__(self, nome, fabricante, ano_lancamento):
+    def __init__(self, nome, idade, premios):
         self.nome = nome
-        self.fabricante = fabricante
-        self.ano_lancamento = ano_lancamento
+        self.idade = idade
+        self.premios = premios
 
 
-class Game(db.Model):
+class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     titulo = db.Column(db.String(150))
     ano = db.Column(db.Integer)
-    categoria = db.Column(db.String(150))
+    genero = db.Column(db.String(150))
     preco = db.Column(db.Float)
     quantidade = db.Column(db.Integer)
-    console_id = db.Column(db.Integer, db.ForeignKey('console.id'))    
-    console = db.relationship('Console', backref=db.backref('game', lazy=True))
+    filmaker_id = db.Column(db.Integer, db.ForeignKey('filmaker.id'))
+    filmaker = db.relationship('Filmaker', backref=db.backref('movies', lazy=True))
 
-    def __init__(self, titulo, ano, categoria, preco, quantidade, console_id):
+    def __init__(self, titulo, ano, genero, preco, quantidade, filmaker_id):
         self.titulo = titulo
         self.ano = ano
-        self.categoria = categoria
+        self.genero = genero
         self.preco = preco
         self.quantidade = quantidade
-        self.console_id = console_id
+        self.filmaker_id = filmaker_id
